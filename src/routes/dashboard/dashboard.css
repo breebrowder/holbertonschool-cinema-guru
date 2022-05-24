@@ -12,67 +12,23 @@
     --color-light-red: #ff0028;
     --color-dark-red: #8B0000;
     --color-white: #FFFF;
-    --color-black: #000000;
   }
-
-.nav {
-    background-color: var(--color-black);
-    height: 30px;
-    align-items: center;
-    padding: 1.5rem;
+  
+  .dash {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
-.nav span {
-    align-items: center;
+.dash > div {
+    width: 100%;
+    height: 94%;
     display: flex;
 }
 
-.nav span img {
-    border: 3px solid var(--color-dark-red);
-    height: 35px;
-    border-radius: 100%;
-    margin-right: 10px;
-}
-
-.nav span > span {
-    cursor: pointer;
-    margin-left: 20px;
-    font-weight: bold;
-    color: var(--color-dark-red);
-}
-
-.nav span > span:hover {
-    color: var(--color-light-red);
-}
-
-.nav span > span > p {
-    margin-left: 5px;
-}
-
-.s_bar {
-    background-color: var(--color-dark-red);
-}
-
-.s_bar ul.navigation li:hover {
-    background-color: var(--color-light-red);
-}
-
-.s_bar ul.navigation li.active {
-    background-color: var(--color-dark-red)
-}
-
-.s_bar ul.acts {
-    background-color: var(--color-black);
-}
-
-.s_bar ul.navigation {
-    padding: 0.5rem
-}
-
-.s_bar ul.navigation li {
+.dash > div > main {
+    width: 100%;
     padding: 1rem;
-    cursor: pointer;
 }
 
