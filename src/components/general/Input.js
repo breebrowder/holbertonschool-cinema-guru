@@ -13,7 +13,7 @@ const Input = ({
         setValue(event.target.value)
     }
     return (
-        <container className="text-input ">
+        <container className="text-input">
             <p>
                 {label}:
             </p>

@@ -26,7 +26,7 @@
     border-bottom: 1px solid var(--primary-dark);
 }
 
-.submit-button {
+.button {
     color: var(--color-white);
     background-color: var(--color-dark-red);
     display: flex;
@@ -36,6 +36,6 @@
     border: none;
 }
 
-.submit-button:hover {
+.button:hover {
     background-color: var(--color-light-red);
 }

@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import "../auth/auth.css";
 import axios from 'axios';
 import Login from '../auth/Login';
@@ -8,51 +8,52 @@ const Authentication = ({
     setIsLoggedIn, // The setState for the isLoggedin state
     setUserUsername // The setState for the userUsername state
 }) => {
-    const [_switch, setSwitch] = useState(true);
-    const [user, setUser] = useState("");
-    const [pwd, setPwd] = useState("");
+    const [_switch, setSwitch] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleSwitch = (value) => {
         setSwitch(value)
+        setPassword("")
+        setUsername("")
     }
-    const handleSubmit = (event) => {
+    const handleForm = (event) => {
         event.preventDefault()
         if (_switch) {
-            axios.post(process.env.LOGIN, { user, pwd })
+            axios.post(process.env.REACT_APP_API_LOGIN, { username, password })
             .then(response => {
                 if (response.data.accessToken) {
-                    localStorage.setItem("Tok_value", response.data.accessToken)
-                    setUserUsername(user)
+                    localStorage.setItem("accessToken", response.data.accessToken)
+                    setUserUsername(username)
                     setIsLoggedIn(true)
                 }
             })
         } else {
-            axios.post(process.env.REGISTER, { user, pwd })
+            axios.post(process.env.REACT_APP_API_REGISTER, { username, password })
             .then(response => {
                 if (response.data.accessToken) {
-                    localStorage.setItem("Tok_value", response.data.accessToken)
-                    setUserUsername(user)
+                    localStorage.setItem("accessToken", response.data.accessToken)
+                    setUserUsername(username)
                     setIsLoggedIn(true)
                 }
             })
         }
     }
     return (
-        // Authentication must return a html form in which there’s two Buttons:
-        // Sign In: When clicked sets the _switch state to true
-        //  Sign Up: When clicked sets the _switch state to false
-        <form className="auth" onSubmit={handleSubmit}>
-            <header>
+        <form className="auth" onSubmit={handleForm}>
+            <body>
                 <ul>
                     <li onClick={() => handleSwitch(true)} className={_switch ? 'active' : ''}>Sign In</li>
                     <li onClick={() => handleSwitch(false)} className={!_switch ? 'active' : ''}>Sign Up</li>
                 </ul>
-            </header>
             <main>
-                {_switch ? <Login user={user} pwd={pwd}/> : <Register setPwd={setPwd} setUser={setUser} />}
+                {_switch ? <Login username={username} setUsername={setUsername} password={password} setPassword={setPassword} /> : <Register username={username} setUsername={setUsername} password={password} setPassword={setPassword} />}
             </main>
+            </body>
+         
         </form>
     );
 }
 
 export default Authentication;
+

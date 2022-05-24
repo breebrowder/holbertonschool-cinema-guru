@@ -12,7 +12,7 @@ const SelectInput = ({
         setValue(event.target.value)
     }
     return (
-        <container className="select-input">
+        <container className="sort-feature">
              <p>
                 {label}:
             </p>
