@@ -7,7 +7,7 @@ const Button = ({
     onClick // The onClick handler for the button
 }) => {
     return (
-        <button className={"submit-button "} onClick={onClick}>
+        <button className="button" onClick={onClick}>
             <p>
                 {label}
             </p>

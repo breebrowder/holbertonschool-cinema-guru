@@ -1,6 +1,6 @@
 import React from 'react';
 import "../auth/auth.css";
-import Submit from '../../components/general/Button';
+import Submit from '../../components/general/SubmitButton';
 import Input from '../../components/general/Input';
 
 const Register = ({
